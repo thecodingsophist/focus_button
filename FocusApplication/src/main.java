@@ -9,6 +9,13 @@ class FocusButton extends JFrame implements ActionListener {
   JLabel L; // reference to the label object
   // constructor for FocusButton
   
+  public static void main ( String[] args ) {
+	    FocusButton frm = new FocusButton();
+
+	    frm.setSize( 150, 75 );     
+	    frm.setVisible( true );   
+	  }
+  
   FocusButton() {
 		L=new JLabel();
 		L.setBounds(50,100,250,20);
@@ -45,13 +52,7 @@ public void actionPerformed(ActionEvent e) {
 		L.setText("Elapsed time is "+elapsedMinutes+" : "+secondsDisplay);
 	
 }
-	
-  public static void main ( String[] args ) {
-    FocusButton frm = new FocusButton();
-
-    frm.setSize( 150, 75 );     
-    frm.setVisible( true );   
-  }
+  
 }
 
 
