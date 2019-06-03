@@ -46,8 +46,7 @@ public void actionPerformed(ActionEvent e) {
 	
 }
 	
-  public static void main ( String[] args )
-  {
+  public static void main ( String[] args ) {
     FocusButton frm = new FocusButton();
 
     frm.setSize( 150, 75 );     
