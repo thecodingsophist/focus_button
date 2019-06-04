@@ -9,7 +9,8 @@ class FocusButton extends JFrame implements WindowListener, ActionListener {
 	
   JButton R; // reference to the reset button object
   JButton B; // reference to the button object
-  JLabel L; // reference to the label object
+  JLabel L; // reference to the milliseconds label object 
+  JLabel mL; // reference to the minutes label object
  
   // main running function
   public static void main ( String[] args ) {
@@ -34,6 +35,13 @@ class FocusButton extends JFrame implements WindowListener, ActionListener {
 		L.setText("Time is 0 : 0");
 		L.setBounds(50,100,250,20);
 		add(L); 
+		
+		//Minute Label, sets the beginning minute text to 0:0, with size, added to frame
+		mL=new JLabel(); 
+		mL.setText("Time is 0 minutes and 0 secs");
+		mL.setBounds(50,150, 250, 20);
+		add(mL); 
+
 		
 		//Start and Stop Button, with methods/actions added
 		B=new JButton( new AbstractAction ("Start Timer") {
@@ -71,6 +79,10 @@ class FocusButton extends JFrame implements WindowListener, ActionListener {
 				  stopTime = 0; 
 				  totalElapsedTime = 0; 
 				  L.setText(String.valueOf(totalElapsedTime + " milliseconds"));
+				  totalElapsedMin = 0; 
+				  totalElapsedSec = 0; 
+				  mL.setText(String.valueOf(totalElapsedMin) + " minutes");
+				  mL.setText(String.valueOf(totalElapsedSec) + " secs");
 			}
 		}); 
 		//sets the size of the reset button
@@ -86,6 +98,8 @@ class FocusButton extends JFrame implements WindowListener, ActionListener {
   long startTime; 
   long stopTime; 
   long totalElapsedTime; 
+  long totalElapsedMin;
+  long totalElapsedSec; 
   
 //  Track the time, changes the label that outputs the elapsed time
   public void timeTrigger() {
@@ -106,6 +120,13 @@ class FocusButton extends JFrame implements WindowListener, ActionListener {
 		//add up all the elapsed time
 		  totalElapsedTime += elapsedTime;
 		  L.setText(String.valueOf(totalElapsedTime + " milliseconds"));
+		  
+		  long elapsedSeconds = totalElapsedTime / 1000;
+		  totalElapsedSec = elapsedSeconds % 60;
+		  totalElapsedMin = elapsedSeconds / 60;
+		  
+		  mL.setText(String.valueOf(totalElapsedMin) + " minutes " + String.valueOf(totalElapsedSec) + " secs");
+
 	  }
 	  
 //	  long time = System.currentTimeMillis();
