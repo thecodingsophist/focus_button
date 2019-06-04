@@ -14,42 +14,40 @@ class FocusButton extends JFrame implements WindowListener, ActionListener {
   // main running function
   public static void main ( String[] args ) {
 	    FocusButton frm = new FocusButton("FOCUS");
-//	    frm.setSize( 400, 400 );     
-//	    frm.setVisible( true );   
-	    
-		//Reset Elapsed time
-//	    frm.timeTrigger();
-	    
 	  }
   
   // constructor for FocusButton
   public FocusButton(String title) {
 	  	
+	  	// defines the title of the pop up window
 	  	super(title);
 	  	
+	  	// adds a listener for the window
         addWindowListener(this);
 		
-        //JFrame 
+        //JFrame, size and visibility defined
 		setSize(400,400);
 		setVisible(true);
 	  	
-	  	//Label
+	  	//Label, sets the beginning text to 0:0, with size, added to frame
 		L=new JLabel();
 		L.setText("Time is 0 : 0");
 		L.setBounds(50,100,250,20);
 		add(L); 
 		
-		//Start&Stop Button
+		//Start and Stop Button, with methods/actions added
 		B=new JButton( new AbstractAction ("Start Timer") {
+			
 			public void actionPerformed( ActionEvent e) {
-				// add Action
 				
 				// determines whether to record time or not with each button press
 				if (on == false) {
 					on = true; 
+					// changes the timer to 'end timer' if timer is triggered and the clause is on
 					B.setText("End Timer");
 				} else {
 					on = false; 
+					// changes the timer to 'start timer' if timer is triggered and the clause is off
 					B.setText("Start Timer");
 				}
 				
@@ -58,11 +56,14 @@ class FocusButton extends JFrame implements WindowListener, ActionListener {
 				
 			}
 		});
+		// sets the size of the button
 		B.setBounds(50,250,150,30);
+		// adds the button to the JFrame
 		add(B);
+		// adds the action listener
 		B.addActionListener(this);
 		
-		//Reset Button
+		//Reset Button, with methods and actions added
 		R=new JButton( new AbstractAction ("Reset Timer") {
 			public void actionPerformed( ActionEvent e) {
 				// add Action
@@ -72,13 +73,13 @@ class FocusButton extends JFrame implements WindowListener, ActionListener {
 				  L.setText(String.valueOf(totalElapsedTime + " milliseconds"));
 			}
 		}); 
-		
+		//sets the size of the reset button
 		R.setBounds(50,150,150,30); 
+		//adds the reset button to the JFrame
 		add(R); 
+		//adds the action listener
 		R.addActionListener(this); 
 		
-		//timeElapsed
-
   }
     
   boolean on = false; // used for tracking on/off button
@@ -86,7 +87,7 @@ class FocusButton extends JFrame implements WindowListener, ActionListener {
   long stopTime; 
   long totalElapsedTime; 
   
-//  Track the time.
+//  Track the time, changes the label that outputs the elapsed time
   public void timeTrigger() {
 	  
 	  long time = System.currentTimeMillis();
