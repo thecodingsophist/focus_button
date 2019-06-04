@@ -1,5 +1,12 @@
 //package components;
- 
+
+// TO DO: 
+// (V1) why is the reset button in the middle of the popup?!
+// (V2) add formatting 
+// (V2) link a hot key to the start/end timer and the reset timer buttons
+// (V3) add table of times spent being unfocused and location
+// (V4 -> ∞) add maps and tinted colors of places spent focused vs. unfocused, create database for pulling data
+
 import java.awt.*;
 import java.lang.*;
 import java.awt.event.*;
@@ -24,7 +31,7 @@ class FocusButton extends JFrame implements WindowListener, ActionListener {
 	  	super(title);
 	  	
 	  	// adds a listener for the window
-        addWindowListener(this);
+        // addWindowListener(this);
 		
         //JFrame, size and visibility defined
 		setSize(400,400);
@@ -39,7 +46,7 @@ class FocusButton extends JFrame implements WindowListener, ActionListener {
 		//Minute Label, sets the beginning minute text to 0:0, with size, added to frame
 		mL=new JLabel(); 
 		mL.setText("Time is 0 minutes and 0 secs");
-		mL.setBounds(50,150, 250, 20);
+		mL.setBounds(50,150,250,20);
 		add(mL); 
 
 		
@@ -128,44 +135,7 @@ class FocusButton extends JFrame implements WindowListener, ActionListener {
 		  mL.setText(String.valueOf(totalElapsedMin) + " minutes " + String.valueOf(totalElapsedSec) + " secs");
 
 	  }
-	  
-//	  long time = System.currentTimeMillis();
-//	  on = true; 
-//	  if (on) {
-//		  System.out.println("time = " + time);
-//		  long elapsedTime = System.currentTimeMillis() - time;
-//		  L.setText(String.valueOf(elapsedTime));
-//		  on = false; 
-//		  }
-//	  } else {
-//		  
-//	  }
-////	  System.out.println(System.currentTimeMillis()); 
-//	  long elapsedTime = System.currentTimeMillis() - startTime;
-//	  System.out.println(System.currentTimeMillis()); 
-//	  System.out.println("elapsed time = " + elapsedTime);
-//	  long elapsedSeconds = elapsedTime / 1000;
-//	  long secondsDisplay = elapsedSeconds % 60;
-//	  long elapsedMinutes = elapsedSeconds / 60;	
-//	  
-//	  L.setText("Elapsed time is "+ elapsedMinutes +" : "+secondsDisplay);
-
   }
-  
-//public void actionPerformed(java.awt.event.ActionEvent e) {
-//  
-//	// determines whether to record time or not with each button press
-//	if (on == false) {
-//		on = true; 
-//	} else {
-//		on = false; 
-//	}
-//	
-//	// the action performed: starts/stops the timer
-//	timeTrigger(); 
-//	  
-//}
-
 
 public void windowOpened(WindowEvent e) {}
 public void windowActivated(WindowEvent e) {}
